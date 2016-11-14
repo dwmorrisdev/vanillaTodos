@@ -1,5 +1,6 @@
 var todoList = {
   todos: [],
+  //logic
   
   //add an item to the list
   addItem: function(todoText) {
@@ -49,17 +50,23 @@ var todoList = {
   }
 };
 
+// the button handlers
 var handlers = {
+  //toggle all button
   toggleAll: function () {
     todoList.toggleAll();
     view.displayTodos();
   },
+
+  //add item button
   addItem: function () {
     var addTodoText = document.getElementById('addTodoText');
     todoList.addItem(addTodoText.value);
     addTodoText.value = '';
     view.displayTodos();
   },
+
+  //modify button
   modifyItem: function () {
     var modifyTodoText = document.getElementById('modifyTodoText');
     var modifyTodoNumber = document.getElementById('modifyTodoNumber');
@@ -68,12 +75,16 @@ var handlers = {
     modifyTodoNumber.value = '';
     view.displayTodos();
   },
+
+  //delete button
   deleteItem: function () {
     var deleteTodoNumber = document.getElementById('deleteTodoNumber');
     todoList.delItem(deleteTodoNumber.valueAsNumber);
     deleteTodoNumber.value = '';
     view.displayTodos();
   },
+
+  //toggle completed button
   toggleCompleted: function () {
     var toggleTodoNumber = document.getElementById('toggleTodoNumber');
     todoList.toggleCompleted(toggleTodoNumber.valueAsNumber);
@@ -82,6 +93,7 @@ var handlers = {
   }
 };
 
+//the view will display the list after each interaction.
 var view = {
   displayTodos: function () { 
     var todosUl = document.querySelector('ul');
