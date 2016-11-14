@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TodoList playground</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+  
+  
+</head>
+
+<body>
+  
+<body>
+  <div class='container'>
+    <h1>Todo List</h1>
+
+    <button class='' onclick='handlers.toggleAll()'>Toggle All</button>
+
+    <div>
+      <button onclick='handlers.addItem()'>Add Todo</button>
+      <input type='text' placeholder='New Todo' id='addTodoText'/>
+    </div>
+
+    <div>
+      <button onclick='handlers.modifyItem()'>Modify Todo</button>
+      <input type='number' placeholder='Which Item to Modify' id='modifyTodoNumber'/>
+      <input type='text' placeholder='Type your changed todo.' id='modifyTodoText'/>
+    </div>
+
+    <div>
+      <button onclick='handlers.deleteItem()'>Delete Item</button>
+      <input type='number' placeholder='Selection' id='deleteTodoNumber'/>
+    </div>
+
+      <div>
+      <button onclick='handlers.toggleCompleted()'>Toggle Completed</button>
+      <input type='number' placeholder='Selection' id='toggleTodoNumber'/>
+    </div>
+
+    <ul></ul>
+  </div>
+</body>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
