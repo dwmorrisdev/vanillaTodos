@@ -77,10 +77,8 @@ var handlers = {
   },
 
   //delete button
-  deleteItem: function () {
-    var deleteTodoNumber = document.getElementById('deleteTodoNumber');
-    todoList.delItem(deleteTodoNumber.valueAsNumber);
-    deleteTodoNumber.value = '';
+  deleteItem: function (position) {
+    todoList.delItem(position);
     view.displayTodos();
   },
 
@@ -109,9 +107,35 @@ var view = {
       } else {
         todoTextWithCompletion = '( ) ' + todo.todoText;
       }
-      
+
+      todosLi.id = i;
       todosLi.textContent = todoTextWithCompletion;
+      todosLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todosLi);  
     }
+  },
+  createDeleteButton: function () {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
+  },
+  setUpEventListeners: function () {
+    debugger;
+    var todosUl = document.querySelector('ul');
+
+    todosUl.addEventListener('click', function (event) {
+      // get the element that was clicked.
+      var elementClicked = event.target;
+
+      //check if element clicked is a delete buttton.
+      if (elementClicked.className === 'deleteButton'){
+      //run handlers. deleteItem(position)
+      handlers.deleteItem(parseInt(elementClicked.parentNode.id));
+      }
+    });
   }
-}
+};
+
+view.setUpEventListeners();
+
