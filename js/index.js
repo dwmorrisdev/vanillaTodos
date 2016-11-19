@@ -90,6 +90,16 @@ var view = {
   displayTodos: function () { 
     var todosUl = document.getElementById('list');
     todosUl.innerHTML = '';
+    
+    if(todoList.todos.length > 0 ){
+      //styles added when list is generated.
+      todosUl.style.visibility = 'visible';
+      todosUl.style.background = 'rgba(225,225,225,.8)';
+      todosUl.style.padding = '30px 5px 30px 5px';
+      todosUl.style.borderRadius = '3px';
+    } else {
+      todosUl.style.visibility = 'hidden';  
+    }
 
     todoList.todos.forEach(function (todo, position) {
       var todosLi = document.createElement('li');
@@ -160,4 +170,5 @@ var view = {
 
 view.setUpEventListeners();
 
-//set up all the form data to only use one input with multiple buttons.
+
+
