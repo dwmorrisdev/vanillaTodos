@@ -1,9 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700|Philosopher');
 
-body{
-	background: skyblue;
+#index{
+	background: #ddd;
 	background-image: url("assets/blueprint.jpg");
 	background-size: cover;
+}
+
+#contact{
+	background: black;
+	background-image: url("assets/mountain.jpg");
+	background-size: cover;
+	color: white;
+}
+
+#about{
+	background: #ddd;
+	background-image: url("assets/mountain2.jpg");
+	background-size: cover;
+	
 }
 
 /******************************** Buttons and Controls *******************************/
@@ -13,7 +27,7 @@ nav{
 
 
 h1{
-	padding-top: 10%;
+	padding-top: 12%;
 	font-family: 'Philosopher', sans-serif;
 	color: white;
 	font-size: 6.5em;
@@ -40,7 +54,13 @@ input{
 button{
 	margin: 15px;
 	border-radius: 3px;
+}
 
+img{
+	width: 20%;
+	border-radius: 10px;
+	margin: 0 30px 30px 0;
+	float: left;
 }
 
 
@@ -63,4 +83,11 @@ button{
 
 .list ul li button{
 	padding-bottom: 5px;
+}
+
+.holder{
+	background: rgba(255, 255, 255, .6);
+	padding: 20px;
+	border-radius: 5px;
+	font-size: 1.2em;
 }

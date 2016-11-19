@@ -13,3 +13,6 @@ A Pen created at CodePen.io. You can find this one at http://codepen.io/thedadsp
 
  -v12-
  removed all inputs but one and wired up to use only one input bar. some styles were added. nav bar added, not wired up. fonts and images added.
+
+ -v13- 
+ added about and contact pages. Styles and basic content for those pages.
