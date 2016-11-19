@@ -4,3 +4,11 @@ A Pen created at CodePen.io. You can find this one at http://codepen.io/thedadsp
 
  -V9-
  wanted to migrate to hard files as changes are beginning to be such that I will want to run a version controller. This is currently version 9, but really the first fully functioning UI.
+
+ -v10-
+ removed manual selection of delete items and setup individual delete buttons and functionality for each todo list item.
+
+ -v11-
+ removed all for loops and replaced with forEach.
+
+ 
