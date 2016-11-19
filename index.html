@@ -2,38 +2,52 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>TodoList playground</title>  
+  <title>To-Do List </title>  
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-  
+  <link rel='stylesheet' href='main.css'>
 </head>
 
 <body>
-  <div class='container'>
-    <h1>Todo List</h1>
+	<nav class='navbar navbar-inverse navbar-fixed-top'>
+		<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">To-Do List</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+	</nav>
 
-    <button class='' onclick='handlers.toggleAll()'>Toggle All</button>
+  	<div class='container text-center'>
+    	<h1>To-Do List</h1>
+	    <div id="controls" class="container">
+	    	<ul>
+	    		<li><button autofocus class='btn btn-success' onclick='handlers.addItem()'>Add Todo</button></li>
+	    		<li><button class='btn btn-primary' onclick='handlers.toggleAll()'>Toggle All</button></li>
+	    		<!--<li><button class='btn btn-default' onclick='handlers.toggleCompleted()'>Toggle Completed</button></li>-->
+	    	</ul>
+	    	<div class="text-center">
+	    		<input type='text' placeholder='Your text here.' id='main-input' />
+	    	</div>
+	    </div>
 
-    <div>
-      <button onclick='handlers.addItem()'>Add Todo</button>
-      <input type='text' placeholder='New Todo' id='addTodoText'/>
-    </div>
-
-    <div>
-      <button onclick='handlers.modifyItem()'>Modify Todo</button>
-      <input type='number' placeholder='Which Item to Modify' id='modifyTodoNumber'/>
-      <input type='text' placeholder='Type your changed todo.' id='modifyTodoText'/>
-    </div>
-
-      <div>
-      <button onclick='handlers.toggleCompleted()'>Toggle Completed</button>
-      <input type='number' placeholder='Selection' id='toggleTodoNumber'/>
-    </div>
 	
-	<div class='container'>
-    	<ul></ul>
-    </div>
-  </div> 
+		<div class='container list'>
+	    	<ul id='list'></ul>
+	    </div>
+ 	</div> 
   <script src="js/index.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
 </html>

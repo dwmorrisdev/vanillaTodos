@@ -11,4 +11,5 @@ A Pen created at CodePen.io. You can find this one at http://codepen.io/thedadsp
  -v11-
  removed all for loops and replaced with forEach.
 
- 
+ -v12-
+ removed all inputs but one and wired up to use only one input bar. some styles were added. nav bar added, not wired up. fonts and images added.

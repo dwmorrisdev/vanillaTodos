@@ -1,7 +1,6 @@
 var todoList = {
   todos: [],
-  //logic
-  
+
   //add an item to the list
   addItem: function(todoText) {
     this.todos.push({
@@ -60,20 +59,17 @@ var handlers = {
 
   //add item button
   addItem: function () {
-    var addTodoText = document.getElementById('addTodoText');
+    var addTodoText = document.getElementById('main-input');
     todoList.addItem(addTodoText.value);
     addTodoText.value = '';
     view.displayTodos();
   },
 
   //modify button
-  modifyItem: function () {
-    var modifyTodoText = document.getElementById('modifyTodoText');
-    var modifyTodoNumber = document.getElementById('modifyTodoNumber');
-    todoList.modifyItem(modifyTodoNumber.valueAsNumber, modifyTodoText.value);
-    modifyTodoText.value = '';
-    modifyTodoNumber.value = '';
-    view.displayTodos();
+  modifyItem: function (position, newText){
+      todoList.modifyItem(position, newText);
+      newText.value = '';
+      view.displayTodos();
   },
 
   //delete button
@@ -83,10 +79,8 @@ var handlers = {
   },
 
   //toggle completed button
-  toggleCompleted: function () {
-    var toggleTodoNumber = document.getElementById('toggleTodoNumber');
-    todoList.toggleCompleted(toggleTodoNumber.valueAsNumber);
-    toggleTodoNumber.value = '';
+  toggleCompleted: function (position) {
+    todoList.toggleCompleted(position);
     view.displayTodos();
   }
 };
@@ -94,7 +88,7 @@ var handlers = {
 //the view will display the list after each interaction.
 var view = {
   displayTodos: function () { 
-    var todosUl = document.querySelector('ul');
+    var todosUl = document.getElementById('list');
     todosUl.innerHTML = '';
 
     todoList.todos.forEach(function (todo, position) {
@@ -109,27 +103,56 @@ var view = {
 
       todosLi.id = position;
       todosLi.textContent = todoTextWithCompletion;
+
       todosLi.appendChild(this.createDeleteButton());
+      todosLi.appendChild(this.createModifyButton());
+      todosLi.appendChild(this.createCompletedButton());
+      
       todosUl.appendChild(todosLi); 
     }, this);
   },
   createDeleteButton: function () {
     var deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
-    deleteButton.className = 'deleteButton';
+    deleteButton.className = 'deleteButton btn btn-danger';
+    deleteButton.title = 'delete';
     return deleteButton;
   },
+  createModifyButton: function () {
+    var modifyButton = document.createElement('button');
+    modifyButton.textContent = 'Modify';
+    modifyButton.className = 'modifyButton btn btn-default';
+    modifyButton.title = 'modify';
+    return modifyButton;
+  },
+  createCompletedButton: function () {
+    var completedButton = document.createElement('button');
+    completedButton.textContent = 'Completed';
+    completedButton.className = 'completedButton btn btn-success';
+    completedButton.title = 'completed';
+    return completedButton;
+  },
   setUpEventListeners: function () {
-    var todosUl = document.querySelector('ul');
+    var todosUl = document.getElementById('list');
 
     todosUl.addEventListener('click', function (event) {
       // get the element that was clicked.
+     
       var elementClicked = event.target;
 
       //check if element clicked is a delete buttton.
-      if (elementClicked.className === 'deleteButton'){
-      //run handlers. deleteItem(position)
-      handlers.deleteItem(parseInt(elementClicked.parentNode.id));
+      if (elementClicked.title === 'delete'){
+        handlers.deleteItem(parseInt(elementClicked.parentNode.id));
+        console.log('delete handler ran');
+      } else if (elementClicked.title === 'modify'){
+        handlers.modifyItem(parseInt(elementClicked.parentNode.id), document.getElementById('main-input').value);
+        console.log('modify handler ran');
+        document.getElementById('main-input').value = '';
+      } else if (elementClicked.title === 'completed'){
+        handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
+        console.log('completed handler ran');
+      } else {
+        console.log('handler did not run');
       }
     });
   }
@@ -137,3 +160,4 @@ var view = {
 
 view.setUpEventListeners();
 
+//set up all the form data to only use one input with multiple buttons.

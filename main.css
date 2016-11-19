@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700|Philosopher');
+
+body{
+	background: skyblue;
+	background-image: url("assets/blueprint.jpg");
+	background-size: cover;
+}
+
+/******************************** Buttons and Controls *******************************/
+nav{
+	font-family: 'Philosopher', sans-serif;
+}
+
+
+h1{
+	padding-top: 10%;
+	font-family: 'Philosopher', sans-serif;
+	color: white;
+	font-size: 6.5em;
+
+}
+
+#controls{
+	padding-top: 30px;
+	margin-left: -35px;
+}
+
+#controls ul li{
+	display: inline;
+	list-style-type: none;
+}
+
+input{
+	margin-top: 5%;
+	margin-left: 40px;
+	margin-bottom: 40px;
+	width: 50%;
+}
+
+button{
+	margin: 15px;
+	border-radius: 3px;
+
+}
+
+
+/************************************ View ***********************************/
+
+.list{
+	background: rgba(255, 255, 255, .7);
+	border-radius: 3px;
+	padding: 20px;
+	/*visibility: hidden; 8*/
+
+}
+
+.list ul li{
+	font-family: 'Amatic SC', cursive;
+	font-size: 2.0em;
+	list-style-type: none;
+	padding-right: 5px;
+}
+
+.list ul li button{
+	padding-bottom: 5px;
+}
