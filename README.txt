@@ -16,3 +16,6 @@ A Pen created at CodePen.io. You can find this one at http://codepen.io/thedadsp
 
  -v13- 
  added about and contact pages. Styles and basic content for those pages.
+
+ -v14- PENDING
+ wired up the todo list to be hidden if empty.
